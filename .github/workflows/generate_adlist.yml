@@ -1,0 +1,45 @@
+name: Generate ROS Adlist
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # 每4小时运行（UTC时间）
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 🧠 Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-dev.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 📦 Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: 🧪 Run generate_adlist.py
+        run: python generate_adlist.py
+
+      - name: 📤 Force commit and push with HK time
+        env:
+          TZ: Asia/Hong_Kong
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          DATE=$(date '+%Y-%m-%d %H:%M GMT+8')
+          git add ros-adlist.txt
+          git commit --allow-empty -m "🤖 强制更新 ros-adlist.txt ($DATE)"
+          git push

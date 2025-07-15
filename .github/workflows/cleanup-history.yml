@@ -1,0 +1,37 @@
+name: 🧹 Cleanup Git History (Preserve All Files)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create orphan branch with only latest files
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # 创建干净分支
+          git checkout --orphan temp-clean
+
+          # 删除旧文件（保留 unstaged 目录结构）
+          git rm -rf .
+
+          # 恢复你当前 main 分支下的所有文件（不只限 ros-adlist）
+          git checkout origin/main -- .
+
+          # 添加所有文件
+          git add .
+
+          # 重新提交
+          git commit -m "🧹 Cleanup history: keep latest files only"
+
+      - name: Force push to main
+        run: |
+          git push --force origin temp-clean:main
