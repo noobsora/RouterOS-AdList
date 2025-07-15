@@ -10,37 +10,43 @@
 
 ---
 
-## 📢 项目简介
+## 📢 Project Overview
 
-本项目基于多个主流广告过滤规则源，聚合并去重，生成符合 MikroTik RouterOS DNS Adlist 模块要求的 `hosts` 格式广告屏蔽列表。  
-支持自动每4小时更新，适合需要系统级广告屏蔽的 RouterOS 用户，无需安装额外插件。
-
----
-
-## ✨ 项目特点
-
-- 🔄 **自动更新**：每4小时自动拉取最新规则并生成列表  
-- 🧹 **智能去重与过滤**：剔除重复、无效规则，过滤正则、通配符、IP等非域名格式  
-- ⚙️ **兼容性强**：输出格式100%支持 RouterOS DNS Adlist  
-- 🌍 **多规则源支持**：包含 AdGuard、Cats-Team、Loyalsoldier 等多个高质量开源广告规则  
+This project is based on several well-known and trusted ad-blocking rule sources. It aggregates and deduplicates these sources to generate a `hosts`-formatted domain blocklist that is compatible with the MikroTik RouterOS DNS Adlist module.The ad domain blocklist is automatically updated every 4 hours, making it ideal for RouterOS users who require system-wide ad blocking without the need for additional plugins.
 
 ---
 
-## ⚙️ 使用方法
+## ⚠️ Notes
 
-### 方法一：Winbox 图形界面配置
+The domain sources are selected with a focus on mainland China, and usage outside of this region is not recommended.
 
-1. 使用 Winbox 登录 RouterOS  
-2. 依次点击 `IP` > `DNS` > `Adlist`  
-3. 点击 `+` 新增规则  
-4. 在 **URL** 栏粘贴以下地址（确保在同一行）：
+---
+
+## ✨ Project Features
+
+* 🔄 **Automatic Updates**: The blocklist is refreshed every 4 hours via GitHub Actions.
+* 🧹 **Smart Filtering & Deduplication**: Automatically removes duplicates, invalid entries, regular expressions, wildcards, IP addresses, and non-domain formats.
+* ⚙️ **High Compatibility**: Output is fully compatible with the RouterOS DNS Adlist module.
+* 🌍 **Trusted Sources**: Aggregates from reputable public rule providers including AdGuard, Cats-Team, Loyalsoldier, and more.
+* 🇨🇳 **China-Optimized**: All source lists are carefully selected for effectiveness within mainland China.
+
+---
+
+## ⚙️ Usage Instructions
+
+### Method 1: Configure via Winbox GUI
+
+1. Log in to your RouterOS device using **Winbox**
+2. Navigate to `IP` > `DNS` > `Adlist`
+3. Click the **“+”** button to add a new entry
+4. Paste the following URL into the **URL** field (make sure it's on a single line):
 ```
 https://raw.githubusercontent.com/noobsora/RouterOS-AdList/refs/heads/main/ros-adlist.txt
 ```
-5. **取消勾选** `SSL Verify`  
-6. 点击 `Apply` 保存生效  
+5. **Uncheck** the `SSL Verify` option
+6. Click **Apply** to save and activate the rule
 
-### 方法二：命令行配置（RouterOS CLI）
+### Method 2: Configure via Command Line (RouterOS CLI)
 
 ```shell
 /ip dns adlist add url="https://raw.githubusercontent.com/noobsora/RouterOS-AdList/refs/heads/main/ros-adlist.txt" ssl-verify=no
@@ -48,12 +54,13 @@ https://raw.githubusercontent.com/noobsora/RouterOS-AdList/refs/heads/main/ros-a
 
 ---
 
-## 🔄 自动更新机制
-本项目通过 GitHub Actions 自动拉取源规则，每 4 小时执行一次，自动生成并提交最新的 ros-adlist.txt 文件。
+## 🔄 Automatic Update Mechanism
+
+This project uses GitHub Actions to automatically fetch source rules every 4 hours, generate a new `ros-adlist.txt` file, and commit the latest version.
 
 ---
 
-## 📚 当前规则源（部分）
+## 📚 Current Rule Sources (Partial List)
 Cats-Team: https://github.com/Cats-Team/AdRules
 
 AdGuardDnsFilter
@@ -70,7 +77,7 @@ OISD-Blocklist-Small
 
 AWAvenue-Ads-Rule
 
-欢迎提出新的源推荐和提交 Issue ！
+Contributions of new source recommendations and Issue submissions are welcome!
 
 ---
 
