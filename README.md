@@ -70,7 +70,7 @@ OISD-Blocklist-Small
 
 AWAvenue-Ads-Rule
 
-欢迎提出新的源推荐，欢迎提交 Issue 或 PR！
+欢迎提出新的源推荐和提交 Issue ！
 
 ---
 
