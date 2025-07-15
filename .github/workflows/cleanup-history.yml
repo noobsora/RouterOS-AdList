@@ -1,8 +1,6 @@
 name: 🧹 Cleanup Git History (Preserve All Files)
 
 on:
-  schedule:
-    - cron: '0 3 * * 0'  # 每周日凌晨3点执行一次（UTC时间）
   workflow_dispatch:
 
 jobs:
