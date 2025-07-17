@@ -45,7 +45,8 @@ SOURCES = {
         "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
     "v2fly-domain-list-community": (
-        "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+        "https://github.com/v2fly/domain-list-community/releases/latest/download/"
+        "dlc.dat"
     ),
 }
 
