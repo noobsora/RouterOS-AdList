@@ -39,19 +39,13 @@ SOURCES = {
         "release/reject-list.txt"
     ),
     "1Hosts-Lite": (
-        "https://raw.githubusercontent.com/AdguardTeam/"
-        "HostlistsRegistry/refs/heads/main/filters/general/"
-        "filter_24_1Hosts_Lite/filter.txt"
+        "https://badmojr.github.io/1Hosts/Lite/domains.txt"
     ),
     "OISD-Blocklist-Small": (
-        "https://raw.githubusercontent.com/AdguardTeam/"
-        "HostlistsRegistry/refs/heads/main/filters/general/"
-        "filter_5_OISD_Blocklist_Small/filter.txt"
+        "https://small.oisd.nl/domainswild2"
     ),
     "AWAvenue-Ads-Rule": (
-        "https://raw.githubusercontent.com/AdguardTeam/"
-        "HostlistsRegistry/refs/heads/main/filters/general/"
-        "filter_53_AWAvenueAdsRule/filter.txt"
+        "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
 }
 
