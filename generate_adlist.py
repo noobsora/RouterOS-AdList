@@ -44,6 +44,9 @@ SOURCES = {
         "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
         "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
+    "v2fly-domain-list-community": (
+        "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+    ),
 }
 
 # 跳过规则：通配符、正则表达式、IP、本地地址等
@@ -54,28 +57,44 @@ SKIP_PATTERNS = [
     re.compile(r"^\s*$"),  # 空行
 ]
 
-# 域名提取规则（宽容）
+# 域名提取规则
 DOMAIN_PATTERN = re.compile(r"([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})")
 
 
 def extract_domains(text):
-    """从文本中提取并过滤域名，跳过@@例外规则，不包含以-或.开头的域名"""
+    """从文本中提取域名"""
     domains = set()
     for line in text.splitlines():
         line = line.strip()
-        if not line or line.startswith("#"):
-            continue
-        if line.startswith("@@"):
+        if not line or line.startswith("#") or line.startswith("@@"):
             continue
         if any(p.search(line) for p in SKIP_PATTERNS):
             continue
         matches = DOMAIN_PATTERN.findall(line)
         for domain in matches:
             if (
-                not any(p.search(domain) for p in SKIP_PATTERNS)
-                and not domain.startswith("-")
+                not domain.startswith("-")
                 and not domain.startswith(".")
+                and not any(p.search(domain) for p in SKIP_PATTERNS)
             ):
+                domains.add(domain.lower())
+    return domains
+
+
+def extract_v2fly_ads(dlc_text):
+    """从 dlc.dat 提取 ads-all 分类中的 full:域名"""
+    domains = set()
+    current_section = None
+    for line in dlc_text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("[") and line.endswith("]"):
+            current_section = line.strip("[]").lower()
+            continue
+        if current_section == "ads-all" and line.startswith("full:"):
+            domain = line[5:]
+            if re.match(r"^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", domain):
                 domains.add(domain.lower())
     return domains
 
@@ -114,7 +133,10 @@ def main():
             res = session.get(url, timeout=30)
             res.raise_for_status()
             content = res.text
-            domains = extract_domains(content)
+            if name == "v2fly-domain-list-community":
+                domains = extract_v2fly_ads(content)
+            else:
+                domains = extract_domains(content)
             source_stats[name] = len(domains)
             all_domains.update(domains)
         except requests.exceptions.RequestException as e:
@@ -132,10 +154,7 @@ def main():
         for domain in sorted_domains:
             f.write("0.0.0.0 " + domain + "\n")
 
-    logger.info(
-        "\n✅ 已生成 ros-adlist.txt，" "共 %d 个域名",
-        len(sorted_domains),
-    )
+    logger.info("✅ 已生成 ros-adlist.txt，共 %d 个域名", len(sorted_domains))
 
 
 if __name__ == "__main__":
