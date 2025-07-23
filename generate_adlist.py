@@ -44,6 +44,9 @@ SOURCES = {
         "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
         "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
+    "217heidai-AdblockHostsLite": (
+        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockhostslite.txt"
+    ),
 }
 
 # 跳过规则：通配符、正则表达式、IP、本地地址等
@@ -133,7 +136,7 @@ def main():
             f.write("0.0.0.0 " + domain + "\n")
 
     logger.info(
-        "\n✅ 已生成 ros-adlist.txt，" "共 %d 个域名",
+        "\n✅ 已生成 ros-adlist.txt，共 %d 个域名",
         len(sorted_domains),
     )
 
