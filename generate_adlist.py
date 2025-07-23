@@ -45,7 +45,8 @@ SOURCES = {
         "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
     "217heidai-AdblockHostsLite": (
-        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockhostslite.txt"
+        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/"
+        "adblockhostslite.txt"
     ),
 }
 
