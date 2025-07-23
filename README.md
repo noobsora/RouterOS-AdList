@@ -77,7 +77,7 @@ OISD-Blocklist-Small
 
 AWAvenue-Ads-Rule
 
-217heidai-AdBlock-Hosts-Lite-Version
+217heidai-AdBlock-Hosts-Lite
 
 Contributions of new source recommendations and Issue submissions are welcome!
 
