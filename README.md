@@ -92,3 +92,9 @@ All domain sources are public community-maintained lists. This project simply ag
 Using this list may block access to certain sites; evaluate before applying in production.  
 
 The author is not liable for any damages caused by use of this project.
+
+---
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
