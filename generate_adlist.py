@@ -50,7 +50,7 @@ SOURCES = {
     ),
 }
 
-# 跳过规则：通配符、正则表达式、IP、本地地址等
+# 跳过：通配符、正则表达式等
 SKIP_PATTERNS = [
     re.compile(r"/.+/"),  # 正则表达式 /pattern/
     re.compile(r"[\[\]{}]"),  # 正则符号
