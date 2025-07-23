@@ -61,9 +61,9 @@ This project uses GitHub Actions to automatically fetch source rules every 4 hou
 ---
 
 ## 📚 Current Rule Sources (Partial List)
-Cats-Team: https://github.com/Cats-Team/AdRules
+Cats-Team-AdRules
 
-AdGuardDnsFilter
+AdGuard-Dns-Filter
 
 AdGuard-DNS-Popup-Hosts-filter
 
@@ -77,19 +77,18 @@ OISD-Blocklist-Small
 
 AWAvenue-Ads-Rule
 
+217heidai-AdBlock-Hosts-Lite-Version
+
 Contributions of new source recommendations and Issue submissions are welcome!
 
 ---
 
-## ⚠️ 免责声明 | Disclaimer
-本项目为开源学习用途，不涉及任何商业盈利行为。  
+## ⚠️ Disclaimer
+
 This project is open-source and for educational use only, with no commercial intent.  
 
-所有域名来源均来自公开社区项目或第三方规则集，作者仅作汇总清洗处理。  
 All domain sources are public community-maintained lists. This project simply aggregates and formats them.  
 
-使用本规则可能会对部分网站的访问造成影响，请用户自行评估与测试。  
 Using this list may block access to certain sites; evaluate before applying in production.  
 
-作者不对使用本项目可能造成的任何直接或间接损失承担责任。  
 The author is not liable for any damages caused by use of this project.
