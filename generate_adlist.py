@@ -44,10 +44,10 @@ SOURCES = {
         "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
         "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
     ),
-    #    "217heidai-AdblockHostsLite": (
-    #        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/"
-    #        "adblockhostslite.txt"
-    #    ),
+    "217heidai-AdblockHostsLite": (
+        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/"
+        "adblockhostslite.txt"
+    ),
 }
 
 # 跳过：通配符、正则表达式等
