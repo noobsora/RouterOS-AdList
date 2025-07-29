@@ -29,21 +29,21 @@ SOURCES = {
         "HostlistsRegistry/refs/heads/main/filters/general/"
         "filter_59_DnsPopupsFilter/filter.txt"
     ),
-#    "Perflyst-and-Dandelion-Sprout-s-Smart-TV-Blocklist": (
-#        "https://raw.githubusercontent.com/AdguardTeam/"
-#        "HostlistsRegistry/refs/heads/main/filters/other/"
-#        "filter_7_SmartTVBlocklist/filter.txt"
-#    ),
-#    "v2ray-rules-dat": (
-#        "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/"
-#        "release/reject-list.txt"
-#    ),
-#    "1Hosts-Lite": ("https://badmojr.github.io/1Hosts/Lite/domains.txt"),
-#    "OISD-Blocklist-Small": ("https://small.oisd.nl/domainswild2"),
-#    "AWAvenue-Ads-Rule": (
-#        "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
-#        "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
-#    ),
+    #    "Perflyst-and-Dandelion-Sprout-s-Smart-TV-Blocklist": (
+    #        "https://raw.githubusercontent.com/AdguardTeam/"
+    #        "HostlistsRegistry/refs/heads/main/filters/other/"
+    #        "filter_7_SmartTVBlocklist/filter.txt"
+    #    ),
+    #    "v2ray-rules-dat": (
+    #        "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/"
+    #        "release/reject-list.txt"
+    #    ),
+    #    "1Hosts-Lite": ("https://badmojr.github.io/1Hosts/Lite/domains.txt"),
+    #    "OISD-Blocklist-Small": ("https://small.oisd.nl/domainswild2"),
+    #    "AWAvenue-Ads-Rule": (
+    #        "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
+    #        "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
+    #    ),
     #    "217heidai-AdblockHostsLite": (
     #        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/"
     #        "adblockhostslite.txt"
