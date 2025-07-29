@@ -40,10 +40,10 @@ SOURCES = {
     #    ),
     #    "1Hosts-Lite": ("https://badmojr.github.io/1Hosts/Lite/domains.txt"),
     #    "OISD-Blocklist-Small": ("https://small.oisd.nl/domainswild2"),
-    #    "AWAvenue-Ads-Rule": (
-    #        "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
-    #        "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
-    #    ),
+    "AWAvenue-Ads-Rule": (
+        "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/"
+        "main/Filters/AWAvenue-Ads-Rule-RouterOS-Adlist.txt"
+    ),
     #    "217heidai-AdblockHostsLite": (
     #        "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/"
     #        "adblockhostslite.txt"
