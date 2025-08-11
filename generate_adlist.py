@@ -52,10 +52,10 @@ SOURCES = {
 
 # 跳过规则（路径、通配符、正则）
 SKIP_PATTERNS = [
-    re.compile(r"^/.+/$"),   # 纯正则 /pattern/
-    re.compile(r"[\[\]{}]"), # 正则符号
-    re.compile(r"\*"),       # 通配符
-    re.compile(r"/"),        # URL 路径（包含斜杠的直接跳过）
+    re.compile(r"^/.+/$"),  # 纯正则 /pattern/
+    re.compile(r"[\[\]{}]"),  # 正则符号
+    re.compile(r"\*"),  # 通配符
+    re.compile(r"/"),  # URL 路径（包含斜杠的直接跳过）
 ]
 
 # 域名匹配（排除 IPv4）
@@ -106,7 +106,7 @@ def create_session():
         total=3,
         backoff_factor=1,
         status_forcelist=[500, 502, 503, 504],
-        allowed_methods=["GET"]
+        allowed_methods=["GET"],
     )
     adapter = HTTPAdapter(max_retries=retry)
     session.mount("https://", adapter)
