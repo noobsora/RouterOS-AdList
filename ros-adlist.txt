@@ -1,11 +1,11 @@
-# 更新时间：2025-08-11 12:38 GMT+8
+# 更新时间：2025-08-11 13:24 GMT+8
 # 数据来源：
 # - Cats-Team：136652 条
-# - AdGuardDnsFilter：126444 条
+# - AdGuardDnsFilter：126473 条
 # - AdGuard-DNS-Popup-Hosts-filter：1311 条
 # - AWAvenue-Ads-Rule：838 条
 # - 217heidai-AdblockHostsLite：5882 条
-# 合并去重后总数：160697 条
+# 合并去重后总数：160,726 条
 
 0.0.0.0 0.myikas.com
 0.0.0.0 0.net.easyjet.com
@@ -224,6 +224,7 @@
 0.0.0.0 1-cl0ud.com
 0.0.0.0 1-directshipmtdhlsexpress-order.help
 0.0.0.0 1.07swz.com
+0.0.0.0 1.1.1.l80.js
 0.0.0.0 1.1010pic.com
 0.0.0.0 1.11130.com.cn
 0.0.0.0 1.11467.com
@@ -1090,6 +1091,8 @@
 0.0.0.0 2znp09oa.com
 0.0.0.0 3.5646.cn
 0.0.0.0 3.cjcp.cn
+0.0.0.0 3.n.2.1.l50.js
+0.0.0.0 3.n.2.2.l30.js
 0.0.0.0 3.ssqzj.com
 0.0.0.0 3.www.cheetahhowevertowardsfrom.com
 0.0.0.0 300daytravel.com
@@ -8040,6 +8043,7 @@
 0.0.0.0 adrequest.net
 0.0.0.0 adresellers.com
 0.0.0.0 adrevenue.appsflyer.com
+0.0.0.0 adrevenue.appsflyersdk.com
 0.0.0.0 adrevenuerescue.com
 0.0.0.0 adrevolver.com
 0.0.0.0 adrianpeachdesign.com
@@ -12272,6 +12276,7 @@
 0.0.0.0 allabc.com
 0.0.0.0 allads4you.de
 0.0.0.0 alladvantage.com
+0.0.0.0 allalla.com
 0.0.0.0 allansindle.shop
 0.0.0.0 allaqxoh.com
 0.0.0.0 allayergyn.top
@@ -18343,6 +18348,7 @@
 0.0.0.0 attr-2p.com
 0.0.0.0 attr-shift.dotabuff.com
 0.0.0.0 attr.appsflyer.com
+0.0.0.0 attr.appsflyersdk.com
 0.0.0.0 attracta.com
 0.0.0.0 attractionbanana.com
 0.0.0.0 attractive-external.pro
@@ -28570,6 +28576,7 @@
 0.0.0.0 client-logger.beta.salemove.com
 0.0.0.0 client-logger.salemove.com
 0.0.0.0 client-metrics.chess.com
+0.0.0.0 client-report.honkaiimpact3.com
 0.0.0.0 client-telemetry.hingeprod.net
 0.0.0.0 client-telemetry.roblox.com
 0.0.0.0 client.botchk.net
@@ -29195,7 +29202,6 @@
 0.0.0.0 cnt.3dmy.net
 0.0.0.0 cnt.affiliate.fc2.com
 0.0.0.0 cnt.alawar.com
-0.0.0.0 cnt.hd
 0.0.0.0 cnt.hd21.com
 0.0.0.0 cnt.iceporn.com
 0.0.0.0 cnt.iol.it
@@ -31511,6 +31517,7 @@
 0.0.0.0 cpa-tc.com
 0.0.0.0 cpa.greenp.kr
 0.0.0.0 cpa.hh.ru
+0.0.0.0 cpa1.ru
 0.0.0.0 cpa3iqcp.de
 0.0.0.0 cpabeyond.com
 0.0.0.0 cpaclickz.com
@@ -43958,6 +43965,7 @@
 0.0.0.0 ecommhpi.ext.hp.com
 0.0.0.0 ecommstats.com
 0.0.0.0 ecommstats.s3.amazonaws.com
+0.0.0.0 ecommtools.com
 0.0.0.0 econda-monitor.de
 0.0.0.0 economicadvantage.midamerican.com
 0.0.0.0 economies.adp.ca
@@ -52067,6 +52075,7 @@
 0.0.0.0 gamefowl.karlsutt.com
 0.0.0.0 gamefowl.nonprofit.foundation
 0.0.0.0 gamegadget.jp
+0.0.0.0 gameleads.ru
 0.0.0.0 gamelights.ru
 0.0.0.0 gameover-shop.de
 0.0.0.0 gamer.mmohuts.com
@@ -67161,6 +67170,7 @@
 0.0.0.0 is-log.furunavi.jp
 0.0.0.0 is.lg.com
 0.0.0.0 is.snssdk.com
+0.0.0.0 is.traff-numerical.info
 0.0.0.0 is02041qqp.xyz
 0.0.0.0 is02050qqp.xyz
 0.0.0.0 isabellagodpointy.com
@@ -68297,7 +68307,6 @@
 0.0.0.0 jhdvcjvsjkvjkb.com
 0.0.0.0 jhebhefcekqpi.site
 0.0.0.0 jhexlqiv.practiceppeexams.ca
-0.0.0.0 jhf.ru
 0.0.0.0 jhf4eib1zb.com
 0.0.0.0 jhftgglydx.com
 0.0.0.0 jhfuhi.b-exit.com
@@ -70792,7 +70801,6 @@
 0.0.0.0 km-digibank.com
 0.0.0.0 km-kryxqvt.site
 0.0.0.0 km.rightanswers.com
-0.0.0.0 kma.biz
 0.0.0.0 kmbjerbaafdn.global
 0.0.0.0 kmblynalgqanb.top
 0.0.0.0 kmbopoie.com
@@ -78730,6 +78738,7 @@
 0.0.0.0 logging.h3z.jp
 0.0.0.0 logging.je-apps.com
 0.0.0.0 logging.kinhtedothi.vn
+0.0.0.0 logging.nextmedia.com
 0.0.0.0 logging.prefixbox.com
 0.0.0.0 logging.pw.adn.cloud
 0.0.0.0 loggingapi.spingo.com
@@ -89710,6 +89719,8 @@
 0.0.0.0 mzzynb.talisajewellery.co.uk
 0.0.0.0 n-analytics.io
 0.0.0.0 n-st.vip.com
+0.0.0.0 n.2.1.js
+0.0.0.0 n.2.1.l60.js
 0.0.0.0 n.35kds.com
 0.0.0.0 n.3g.163.com
 0.0.0.0 n.baminw.com.cn
@@ -92858,7 +92869,6 @@
 0.0.0.0 o02231aokk.com
 0.0.0.0 o02251aokk.com
 0.0.0.0 o02260aokk.com
-0.0.0.0 o0e.ru
 0.0.0.0 o1.jyjyj.cn
 0.0.0.0 o18.click
 0.0.0.0 o18.link
@@ -98706,6 +98716,7 @@
 0.0.0.0 pi.technik3d.com
 0.0.0.0 pi4.piczhq.com
 0.0.0.0 pi81.shop
+0.0.0.0 pia.appsflyersdk.com
 0.0.0.0 piaads.com
 0.0.0.0 piabaownable.top
 0.0.0.0 pianm.cn
@@ -98735,6 +98746,7 @@
 0.0.0.0 picarasgalax.com
 0.0.0.0 picarosfurry.top
 0.0.0.0 picbitok.com
+0.0.0.0 piccash.net
 0.0.0.0 piccdn.igetget.com
 0.0.0.0 picchutupxu.com
 0.0.0.0 picenemowhay.cyou
@@ -100460,6 +100472,7 @@
 0.0.0.0 potlingdesand.help
 0.0.0.0 potmqiirlfjdu.store
 0.0.0.0 potoosmonauli.cfd
+0.0.0.0 potopy.ru
 0.0.0.0 potpxgxuszbiu.online
 0.0.0.0 potsaglu.net
 0.0.0.0 potshumiliationremnant.com
@@ -101203,6 +101216,7 @@
 0.0.0.0 prod.fennec.atp.fox
 0.0.0.0 prod.html5-ads.vk-apps.com
 0.0.0.0 prod.nitrosniffer.ottogroup.io
+0.0.0.0 prod.pr.analytics.console.aws.a2z.com
 0.0.0.0 prod.report.nacustomerexperience.citi.com
 0.0.0.0 prod.tahoe-analytics.publishers.advertising.a2z.com
 0.0.0.0 prod.tracking.refinitiv.com
@@ -104210,7 +104224,6 @@
 0.0.0.0 r.getcopper.com
 0.0.0.0 r.guggy.com
 0.0.0.0 r.hjj.pw
-0.0.0.0 r.i.ua
 0.0.0.0 r.intimately.us
 0.0.0.0 r.jakuli.com
 0.0.0.0 r.kleertjes.com
@@ -107964,6 +107977,7 @@
 0.0.0.0 rtb.clixportal.com
 0.0.0.0 rtb.com.ru
 0.0.0.0 rtb.gamoshi.io
+0.0.0.0 rtb.gravite.net
 0.0.0.0 rtb.mts.ru
 0.0.0.0 rtb.nativeads.com
 0.0.0.0 rtb.nowsrv.com
@@ -109344,6 +109358,7 @@
 0.0.0.0 s2s.maxisport.com
 0.0.0.0 s2s.ofinance.ca
 0.0.0.0 s2s.overgear.com
+0.0.0.0 s2s.sensic.net
 0.0.0.0 s2s.sjarmtroll.no
 0.0.0.0 s2s.src.sk.ca
 0.0.0.0 s2s.weclean4u.com.cy
@@ -117336,6 +117351,7 @@
 0.0.0.0 sk8t.fr
 0.0.0.0 skadnetwork.singular.net
 0.0.0.0 skadsdk.appsflyer.com
+0.0.0.0 skadsdkless.appsflyersdk.com
 0.0.0.0 skaffa.tidyapp.se
 0.0.0.0 skaffmuller.digital
 0.0.0.0 skaldmishara.top
@@ -122929,6 +122945,7 @@
 0.0.0.0 spike.email-disney.cjm.adobe.com
 0.0.0.0 spikebasidia.com
 0.0.0.0 spikereekvelocity.com
+0.0.0.0 spiky.clevertap-prod.com
 0.0.0.0 spileechoed.shop
 0.0.0.0 spilerterrene.world
 0.0.0.0 spilingrutin.help
@@ -128627,6 +128644,7 @@
 0.0.0.0 stape.nativaplantas.com.br
 0.0.0.0 stape.naturacapsplus.com
 0.0.0.0 stape.neresbrasil.com.br
+0.0.0.0 stape.net
 0.0.0.0 stape.neurau.com.br
 0.0.0.0 stape.neurofuncional.com.br
 0.0.0.0 stape.neverdietagainmethod.uk
@@ -136212,6 +136230,8 @@
 0.0.0.0 telemetry.navigatorapp.net
 0.0.0.0 telemetry.navispherecarrier.com
 0.0.0.0 telemetry.nbcuott.com
+0.0.0.0 telemetry.officeapps.live.com
+0.0.0.0 telemetry.officeapps.live.com.mcas.ms
 0.0.0.0 telemetry.oliverwyman.com
 0.0.0.0 telemetry.oliverwymanforum.com
 0.0.0.0 telemetry.otsuka-us.com
@@ -138731,6 +138751,7 @@
 0.0.0.0 touvxlii.top
 0.0.0.0 touwhahouze.net
 0.0.0.0 touzledpeewee.digital
+0.0.0.0 tovarro.com
 0.0.0.0 tovbus.cn
 0.0.0.0 tovery.net
 0.0.0.0 tovespiquener.com
@@ -138842,6 +138863,7 @@
 0.0.0.0 tpjw.cn
 0.0.0.0 tpkv.cn
 0.0.0.0 tplinkextender.net
+0.0.0.0 tpm.pw
 0.0.0.0 tpmagqvjzgvos.com
 0.0.0.0 tpmedia-reactads.com
 0.0.0.0 tpmedia.online
@@ -141283,6 +141305,7 @@
 0.0.0.0 tracker.beezup.com
 0.0.0.0 tracker.beritagar.id
 0.0.0.0 tracker.bestshopping.com
+0.0.0.0 tracker.biliapi.net
 0.0.0.0 tracker.bkk24.de
 0.0.0.0 tracker.blutv.com
 0.0.0.0 tracker.bonnint.net
@@ -145125,6 +145148,7 @@
 0.0.0.0 tviarpvxe.com
 0.0.0.0 tvkfms.nta.co.jp
 0.0.0.0 tvoiioftvfzzc.buzz
+0.0.0.0 tvp.tv
 0.0.0.0 tvpgs.palmgolfco.com
 0.0.0.0 tvphkckqchufn.space
 0.0.0.0 tvpixel.com
@@ -146155,6 +146179,7 @@
 0.0.0.0 ulog.ksapisrv.com
 0.0.0.0 ulog.kwai-pro.com
 0.0.0.0 ulog.kwaipros.com
+0.0.0.0 ulog.region.kwai-pro.com
 0.0.0.0 ulog.v6.gifshow.com
 0.0.0.0 ulog.v6.ksapisrv.com
 0.0.0.0 ulog1-us.kwai-pro.com
@@ -146166,6 +146191,8 @@
 0.0.0.0 ulogjs.gifshow.com
 0.0.0.0 ulogjs.ksapisrv.com
 0.0.0.0 ulogko.gifshow.com
+0.0.0.0 ulogl2.kwai-pro.com
+0.0.0.0 ulogl2.kwaipros.com
 0.0.0.0 ulogs.umeng.com
 0.0.0.0 ulogs.umengcloud.com
 0.0.0.0 ulogs1.gifshow.com
@@ -149773,6 +149800,7 @@
 0.0.0.0 viphirsaick.net
 0.0.0.0 vipicmou.net
 0.0.0.0 vipimo.hohenlohe.de
+0.0.0.0 vipko.ru
 0.0.0.0 viplovang.com
 0.0.0.0 vipmasajes.com
 0.0.0.0 vipmmomo2456.fun
@@ -152388,6 +152416,7 @@
 0.0.0.0 webh5.newfastloan.cc
 0.0.0.0 webhits.de
 0.0.0.0 webhooks-affiliates.ornament.app
+0.0.0.0 webhop.net
 0.0.0.0 webhosting-ads.home.pl
 0.0.0.0 webhosting.hut1.ru
 0.0.0.0 webiklan.com
