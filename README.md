@@ -67,15 +67,9 @@ AdGuard-Dns-Filter
 
 AdGuard-DNS-Popup-Hosts-filter
 
-Perflyst-and-Dandelion-Sprout-s-Smart-TV-Blocklist
-
-v2ray-rules-dat
-
-1Hosts-Lite
-
-OISD-Blocklist-Small
-
 AWAvenue-Ads-Rule
+
+217heidai-AdblockHostsLite
 
 Contributions of new source recommendations and Issue submissions are welcome!
 
