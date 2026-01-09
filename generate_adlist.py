@@ -41,7 +41,7 @@ DOMAIN_PATTERN = re.compile(
 
 
 def get_hkt_time():
-    """获取香港时间 (修复 utcnow 弃用警告)"""
+    """获取香港时间"""
     return (
         datetime.now(timezone.utc)
         .astimezone(ZoneInfo("Asia/Hong_Kong"))
@@ -70,7 +70,7 @@ def clean_line(line):
     清洗行数据：
     1. 去除注释 (# 和 !)
     2. 去除 Adblock 修饰符 (||, ^, @@)
-    3. 去除行首的 IP (如 127.0.0.1 google.com)
+    3. 去除行首 IP (如 127.0.0.1 google.com)
     """
     # 1. 去除行内注释 (Adblock 常用 ! 或 #)
     if "#" in line:
