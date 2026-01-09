@@ -9,7 +9,9 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
-logging.basicConfig(level=logging.INFO, format=LOG_FORMAT, handlers=[logging.StreamHandler()])
+logging.basicConfig(
+    level=logging.INFO, format=LOG_FORMAT, handlers=[logging.StreamHandler()]
+)
 logger = logging.getLogger()
 
 OUTPUT_FILE = "ros-adlist.txt"
@@ -37,9 +39,15 @@ DOMAIN_PATTERN = re.compile(
     r"(?i)\b((?=[a-z0-9-]{1,63}\.)(xn--[a-z0-9]+|[a-z0-9]+(-[a-z0-9]+)*)\.)+[a-z]{2,63}\b"
 )
 
+
 def get_hkt_time():
     """获取香港时间 (修复 utcnow 弃用警告)"""
-    return datetime.now(timezone.utc).astimezone(ZoneInfo("Asia/Hong_Kong")).strftime("%Y-%m-%d %H:%M GMT+8")
+    return (
+        datetime.now(timezone.utc)
+        .astimezone(ZoneInfo("Asia/Hong_Kong"))
+        .strftime("%Y-%m-%d %H:%M GMT+8")
+    )
+
 
 def create_session():
     """创建高可用会话"""
@@ -49,12 +57,13 @@ def create_session():
         backoff_factor=1,
         status_forcelist=[500, 502, 503, 504],
         allowed_methods=["GET"],
-        raise_on_status=False
+        raise_on_status=False,
     )
     adapter = HTTPAdapter(max_retries=retry)
     session.mount("https://", adapter)
     session.mount("http://", adapter)
     return session
+
 
 def clean_line(line):
     """
@@ -64,35 +73,36 @@ def clean_line(line):
     3. 去除行首的 IP (如 127.0.0.1 google.com)
     """
     # 1. 去除行内注释 (Adblock 常用 ! 或 #)
-    if '#' in line:
-        line = line.split('#')[0]
-    if '!' in line:
-        line = line.split('!')[0]
-    
+    if "#" in line:
+        line = line.split("#")[0]
+    if "!" in line:
+        line = line.split("!")[0]
+
     line = line.strip()
-    
+
     # 2. 忽略白名单和空行
     if not line or line.startswith("@@"):
         return None
 
     # 3. 清理 Adblock 语法
     # 移除 || (开始) 和 ^ (结束) 以及 | (行首行尾)
-    line = line.replace('||', '').replace('^', '').strip('|')
-    
+    line = line.replace("||", "").replace("^", "").strip("|")
+
     # 4. 处理 Hosts 格式 (去除前面的 IP)
     # 分割空格，取最后一个部分通常是域名
     parts = line.split()
     if len(parts) >= 2:
         # 如果第一部分是 IP (简单判断)，取后面部分
-        if parts[0] in ['0.0.0.0', '127.0.0.1', '::1']:
+        if parts[0] in ["0.0.0.0", "127.0.0.1", "::1"]:
             line = parts[-1]
-    
+
     return line.strip()
+
 
 def extract_domains(text):
     """提取并过滤域名"""
     domains = set()
-    
+
     for raw_line in text.splitlines():
         line = clean_line(raw_line)
         if not line:
@@ -107,12 +117,15 @@ def extract_domains(text):
         matches = DOMAIN_PATTERN.finditer(line)
         for match in matches:
             domain = match.group().lower()
-            
+
             # 二次校验：排除 IP 地址和无效字符
-            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(domain):
+            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(
+                domain
+            ):
                 domains.add(domain)
-                
+
     return domains
+
 
 def main():
     all_domains = set()
@@ -126,14 +139,14 @@ def main():
             logger.info(f"⬇ 正在获取：{name}")
             res = session.get(url, timeout=30)
             res.raise_for_status()
-            
+
             current_domains = extract_domains(res.text)
             count = len(current_domains)
             source_stats[name] = count
             logger.info(f"  └─ 提取到 {count} 条有效域名")
-            
+
             all_domains.update(current_domains)
-            
+
         except Exception as e:
             logger.error(f"❌ 获取 {name} 失败: {e}")
             source_stats[name] = 0
@@ -144,7 +157,7 @@ def main():
 
     sorted_domains = sorted(all_domains)
     total_count = len(sorted_domains)
-    
+
     # 写入临时文件
     temp_file = OUTPUT_FILE + ".tmp"
     try:
@@ -154,17 +167,18 @@ def main():
             for name, count in source_stats.items():
                 f.write(f"# - {name}：{count} 条\n")
             f.write(f"# 合并去重后总数：{total_count:,} 条\n\n")
-            
+
             f.writelines(f"0.0.0.0 {domain}\n" for domain in sorted_domains)
-        
+
         # 移动临时文件覆盖原文件
         shutil.move(temp_file, OUTPUT_FILE)
         logger.info(f"\n✅ 成功生成 {OUTPUT_FILE}，共 {total_count:,} 个域名")
-        
+
     except IOError as e:
         logger.error(f"❌ 文件写入失败: {e}")
         if os.path.exists(temp_file):
             os.remove(temp_file)
+
 
 if __name__ == "__main__":
     try:
