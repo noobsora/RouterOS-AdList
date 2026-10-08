@@ -6,7 +6,6 @@
 ![Repo Size](https://img.shields.io/github/repo-size/noobsora/RouterOS-AdList.svg)
 ![Contributors](https://img.shields.io/github/contributors/noobsora/RouterOS-AdList.svg)
 ![Python Version](https://img.shields.io/badge/python-3.11-blue)
-![Format and Lint](https://github.com/noobsora/RouterOS-AdList/actions/workflows/format-and-lint.yml/badge.svg)
 
 ---
 
@@ -51,12 +50,6 @@ https://raw.githubusercontent.com/noobsora/RouterOS-AdList/refs/heads/main/ros-a
 ```shell
 /ip dns adlist add url="https://raw.githubusercontent.com/noobsora/RouterOS-AdList/refs/heads/main/ros-adlist.txt" ssl-verify=no
 ```
-
----
-
-## 🔄 Automatic Update Mechanism
-
-This project uses GitHub Actions to automatically fetch source rules every 4 hours, generate a new `ros-adlist.txt` file, and commit the latest version.
 
 ---
 
