@@ -8,7 +8,6 @@ from zoneinfo import ZoneInfo
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-# 日志配置
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 logging.basicConfig(
     level=logging.INFO, format=LOG_FORMAT, handlers=[logging.StreamHandler()]
@@ -17,7 +16,6 @@ logger = logging.getLogger()
 
 OUTPUT_FILE = "ros-adlist.txt"
 
-# 广告源配置
 SOURCES = {
     "Cats-Team": "https://raw.githubusercontent.com/Cats-Team/AdRules/main/mosdns_adrules.txt",
     "AdGuardDnsFilter": "https://raw.githubusercontent.com/AdguardTeam/HostlistsRegistry/refs/heads/main/filters/general/filter_1_DnsFilter/filter.txt",
@@ -26,7 +24,6 @@ SOURCES = {
     "217heidai-AdblockHostsLite": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockhostslite.txt",
 }
 
-# 正则表达式预编译
 INVALID_CHARS_PATTERN = re.compile(r"[*\[\]{}/]")
 IP_PATTERN = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
 DOMAIN_PATTERN = re.compile(
@@ -35,7 +32,6 @@ DOMAIN_PATTERN = re.compile(
 
 
 def get_hkt_time():
-    """获取时间"""
     return (
         datetime.now(timezone.utc)
         .astimezone(ZoneInfo("Asia/Hong_Kong"))
@@ -44,7 +40,6 @@ def get_hkt_time():
 
 
 def create_session():
-    """创建高可用会话"""
     session = requests.Session()
     retry = Retry(
         total=3,
@@ -60,21 +55,16 @@ def create_session():
 
 
 def clean_line(line):
-    """清洗行数据"""
     if not line:
         return None
 
-    # 1. 去除行内注释
     line = line.split("#")[0].split("!")[0].strip()
 
-    # 2. 忽略白名单和空行
     if not line or line.startswith("@@"):
         return None
 
-    # 3. 清理 Adblock 语法
     line = line.replace("||", "").replace("^", "").strip("|")
 
-    # 4. 处理 Hosts 格式
     parts = line.split()
     if len(parts) >= 2:
         if parts[0] in ["0.0.0.0", "127.0.0.1", "::1"]:
@@ -84,7 +74,6 @@ def clean_line(line):
 
 
 def process_content(lines_iterator):
-    """逐行提取并过滤域名"""
     domains = set()
     for raw_line in lines_iterator:
         line_text = raw_line.decode("utf-8", errors="ignore")
@@ -129,7 +118,6 @@ def main():
             logger.error(f"❌ 获取 {name} 失败: {e}")
             source_stats[name] = 0
 
-    # --- 空结果保护 ---
     if not all_domains:
         raise RuntimeError(
             "❌ 所有广告源均失效或未提取到任何域名！请检查网络或源地址。"
