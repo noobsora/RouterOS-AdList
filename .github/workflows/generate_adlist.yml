@@ -3,7 +3,7 @@ name: Generate ROS Adlist
 on:
   schedule:
     - cron: '0 */4 * * *'
-  workflow_dispatch:       # 支持手动触发
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -26,18 +26,24 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-          pip install requests
 
       - name: 🧪 Run generate_adlist.py
         run: python generate_adlist.py
 
-      - name: 📤 Force commit and push with HK time
+      - name: 📤 Commit and push if changed
         env:
           TZ: Asia/Hong_Kong
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          DATE=$(date '+%Y-%m-%d %H:%M GMT+8')
+          
           git add ros-adlist.txt
-          git commit --allow-empty -m "🤖 强制更新 ros-adlist.txt ($DATE)"
-          git push
+          
+          if git diff --staged --quiet; then
+            echo "No changes detected in ros-adlist.txt. Skipping commit."
+          else
+            DATE=$(date '+%Y-%m-%d %H:%M GMT+8')
+            git commit -m "🤖 更新 ros-adlist.txt ($DATE)"
+            git push
+            echo "Changes committed and pushed successfully."
+          fi
