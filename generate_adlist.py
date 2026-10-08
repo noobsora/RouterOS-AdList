@@ -24,12 +24,11 @@ SOURCES = {
     "217heidai-AdblockHostsLite": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockhostslite.txt",
 }
 
-INVALID_CHARS_PATTERN = re.compile(r"[*\[\]{}/]")
-IP_PATTERN = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
 DOMAIN_PATTERN = re.compile(
     r"(?i)\b((?=[a-z0-9-]{1,63}\.)(xn--[a-z0-9]+|[a-z0-9]+(-[a-z0-9]+)*)\.)+[a-z]{2,63}\b"
 )
-
+IP_PATTERN = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
+INVALID_CHARS_PATTERN = re.compile(r"[*\[\]{}/]")
 
 def get_hkt_time():
     return (
@@ -38,9 +37,11 @@ def get_hkt_time():
         .strftime("%Y-%m-%d %H:%M GMT+8")
     )
 
-
 def create_session():
     session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    })
     retry = Retry(
         total=3,
         backoff_factor=1,
@@ -53,46 +54,20 @@ def create_session():
     session.mount("http://", adapter)
     return session
 
-
-def clean_line(line):
-    if not line:
-        return None
-
-    line = line.split("#")[0].split("!")[0].strip()
-
-    if not line or line.startswith("@@"):
-        return None
-
-    line = line.replace("||", "").replace("^", "").strip("|")
-
-    parts = line.split()
-    if len(parts) >= 2:
-        if parts[0] in ["0.0.0.0", "127.0.0.1", "::1"]:
-            line = parts[-1]
-
-    return line.strip()
-
-
 def process_content(lines_iterator):
     domains = set()
     for raw_line in lines_iterator:
-        line_text = raw_line.decode("utf-8", errors="ignore")
-        line = clean_line(line_text)
-        if not line:
+        if not raw_line:
             continue
-
-        if INVALID_CHARS_PATTERN.search(line):
-            continue
-
-        matches = DOMAIN_PATTERN.finditer(line)
+            
+        line_text = raw_line.decode("utf-8", errors="ignore").split('#')[0].split('!')[0]
+        
+        matches = DOMAIN_PATTERN.finditer(line_text)
         for match in matches:
             domain = match.group().lower()
-            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(
-                domain
-            ):
+            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(domain):
                 domains.add(domain)
     return domains
-
 
 def main():
     all_domains = set()
@@ -106,6 +81,8 @@ def main():
             logger.info(f"⬇ 正在获取：{name}")
             res = session.get(url, timeout=30, stream=True)
             res.raise_for_status()
+            
+            res.encoding = res.apparent_encoding
 
             current_domains = process_content(res.iter_lines())
             count = len(current_domains)
@@ -144,7 +121,6 @@ def main():
         if os.path.exists(temp_file):
             os.remove(temp_file)
         raise
-
 
 if __name__ == "__main__":
     try:
