@@ -33,6 +33,7 @@ DOMAIN_PATTERN = re.compile(
     r"(?i)\b((?=[a-z0-9-]{1,63}\.)(xn--[a-z0-9]+|[a-z0-9]+(-[a-z0-9]+)*)\.)+[a-z]{2,63}\b"
 )
 
+
 def get_hkt_time():
     """获取时间"""
     return (
@@ -40,6 +41,7 @@ def get_hkt_time():
         .astimezone(ZoneInfo("Asia/Hong_Kong"))
         .strftime("%Y-%m-%d %H:%M GMT+8")
     )
+
 
 def create_session():
     """创建高可用会话"""
@@ -56,11 +58,12 @@ def create_session():
     session.mount("http://", adapter)
     return session
 
+
 def clean_line(line):
     """清洗行数据"""
     if not line:
         return None
-    
+
     # 1. 去除行内注释
     line = line.split("#")[0].split("!")[0].strip()
 
@@ -79,11 +82,12 @@ def clean_line(line):
 
     return line.strip()
 
+
 def process_content(lines_iterator):
     """逐行提取并过滤域名"""
     domains = set()
     for raw_line in lines_iterator:
-        line_text = raw_line.decode('utf-8', errors='ignore')
+        line_text = raw_line.decode("utf-8", errors="ignore")
         line = clean_line(line_text)
         if not line:
             continue
@@ -94,9 +98,12 @@ def process_content(lines_iterator):
         matches = DOMAIN_PATTERN.finditer(line)
         for match in matches:
             domain = match.group().lower()
-            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(domain):
+            if not IP_PATTERN.match(domain) and not INVALID_CHARS_PATTERN.search(
+                domain
+            ):
                 domains.add(domain)
     return domains
+
 
 def main():
     all_domains = set()
@@ -124,7 +131,9 @@ def main():
 
     # --- 空结果保护 ---
     if not all_domains:
-        raise RuntimeError("❌ 所有广告源均失效或未提取到任何域名！请检查网络或源地址。")
+        raise RuntimeError(
+            "❌ 所有广告源均失效或未提取到任何域名！请检查网络或源地址。"
+        )
 
     sorted_domains = sorted(all_domains)
     total_count = len(sorted_domains)
@@ -147,6 +156,7 @@ def main():
         if os.path.exists(temp_file):
             os.remove(temp_file)
         raise
+
 
 if __name__ == "__main__":
     try:
