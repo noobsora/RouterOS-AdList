@@ -2,7 +2,7 @@ name: Generate ROS Adlist
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # 每4小时运行（UTC时间）
+    - cron: '0 */4 * * *'
   workflow_dispatch:       # 支持手动触发
 
 permissions:
@@ -36,7 +36,7 @@ jobs:
           TZ: Asia/Hong_Kong
         run: |
           git config user.name "github-actions[bot]"
-          git config user. "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           DATE=$(date '+%Y-%m-%d %H:%M GMT+8')
           git add ros-adlist.txt
           git commit --allow-empty -m "🤖 强制更新 ros-adlist.txt ($DATE)"
